@@ -1,0 +1,35 @@
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="logo">
+      <h1>
+        <img src="assets/img/myimg/wired-lineal-499-clipboard-film-clap.gif" class="mb-3" width="50px" alt="icon">
+        <a (click)="showNavLinks = true" href="">My Film</a>
+      </h1>
+    </div>
+
+    <nav id="navbar" class="navbar">
+      <ul *ngIf="showNavLinks">
+        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        <li><a class="nav-link scrollto" href="#movies">Movies</a></li>
+        <li><a class="nav-link scrollto" href="#fanfav">Top Movie</a></li>
+        <li><a class="nav-link scrollto" href="#upcoming">Upcoming</a></li>
+      </ul>
+      <!-- <div *ngIf="searchResults.length > 0" class="search-results">
+        <ul>
+          <li *ngFor="let movie of searchResults" (click)="goToDetail(movie.id)">{{ movie.title }}</li>
+        </ul>
+      </div> -->
+      <form class="d-flex position-relative">
+        <input #searchQuery type="text" class="form-control" placeholder="Search Movies" aria-label="Search" (keyup)="onSearch(searchQuery.value)">
+        <div *ngIf="searchResults.length > 0" class="search-results position-absolute w-100">
+          <ul class="list-group">
+            <li *ngFor="let movie of searchResults" class="list-group-item w-100" (click)="goToDetail(movie.id)">
+              {{ movie.title }}
+            </li>
+          </ul>
+        </div>
+      </form>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+  </div>
+</header>

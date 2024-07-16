@@ -1,0 +1,137 @@
+<section id="movies" class="team">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>Movies</h2>
+      <p>ada rekomendasi film nih di tahun 2024</p>
+    </div>
+
+    <div class="container">
+      <ul class="pagination animate__animated animate__fadeInDown" data-aos-delay="100">
+        <li (click)="goToPage(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}">
+          <a href="javascript:void(0)">
+            < Prev </a>
+        </li>
+        <li *ngFor="let page of pages" [ngClass]="{'active': page === currentPage}">
+          <a href="javascript:void(0)" (click)="goToPage(page)">{{ page }}</a>
+        </li>
+        <li (click)="goToPage(currentPage + 1)" [ngClass]="{'disabled': currentPage === pages.length}">
+          <a href="javascript:void(0)">Next ></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos-delay="100"
+        *ngFor="let movie of movies; trackBy: trackByMovieId" style="cursor: pointer;">
+        <div class="member" data-aos="fade-up">
+          <div class="member-img">
+            <img [src]="imageUrlBase + movie.poster_path" alt="{{ movie.title }} poster" class="img-fluid">
+            <!-- must reload -->
+            <div class="social" (click)="goToDetail(movie.id)" title="Detail Movie">
+              <a>
+                <i class="bi bi-info" ></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <h4>{{ movie.title }} {{ movie.name }}</h4>
+            <span>Genres: {{ getGenreNames(movie.genre_ids) }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>Testimonials</h2>
+      <p>Apa yang mereka katakan mengenai film di tahun 2024</p>
+    </div>
+
+    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              "Kingdom of the Apes" berhasil menyentuh emosi penonton dengan menggambarkan momen intim dan dramatis
+              dalam kehidupan simpanse, menciptakan pengalaman menonton yang mendalam dan memikat.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+            <h3>Saul Goodman</h3>
+            <h4>Ceo &amp; Founder</h4>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Seperti yang diharapkan dari film Mad Max, "Furiosa" menampilkan visual spektakuler dan aksi intens.
+              Sutradara George Miller mempertahankan gaya sinematik khasnya dengan koreografi aksi dan desain produksi
+              yang memukau.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+            <h3>Sara Wilsson</h3>
+            <h4>Designer</h4>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Animasi dalam "Haikyu!! The Dumpster Battle" sangat mengesankan, dengan gerakan voli yang realistis dan
+              detail yang memikat. Studio Production I.G mempertahankan standar tinggi yang diharapkan dari seri ini.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+            <h3>Jena Karlis</h3>
+            <h4>Store Owner</h4>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              "Godzilla Minus One" diterima baik oleh kritikus dan penonton, dipuji karena pendekatan inovatif dan
+              eksekusi solidnya. Film ini membawa nuansa baru pada franchise lama sambil menghormati akar klasiknya.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+            <h3>Matt Brandon</h3>
+            <h4>Freelancer</h4>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              "Rebel Moon" mengusung tema-tema seperti perjuangan melawan penindasan, keberanian, dan solidaritas.
+              Pesan-pesan ini memberikan lapisan makna tambahan pada narasi film dan menambah daya tarik emosional.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+            <h3>John Larson</h3>
+            <h4>Entrepreneur</h4>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>

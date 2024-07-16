@@ -1,0 +1,41 @@
+<!-- ======= Cta Section ======= -->
+<section id="fanfav" class="cta dark yellow">
+    <div class="container ">
+        <div class="row" data-aos="zoom-out">
+            <div class="container shadow">
+                <div class="section-title" data-aos="zoom-out">
+                    <h2>Top Movie</h2>
+                    <p>Film Top Rate</p>
+                </div>
+                
+
+                <article class="postcard dark blue img-item" data-aos-delay="100" *ngFor="let famovie of faMovies; trackBy: trackByMovieId">
+                    <a class="postcard__img_link" href="#">
+                        <img class="postcard__img" [src]="imageUrlBase + famovie.poster_path" alt="{{ famovie.original_title }} poster" />
+                    </a>
+                    <div class="postcard__text">
+                        <h1 class="postcard__title blue"><a href="#">{{ famovie.original_title }}</a></h1>
+                        <div class="postcard__subtitle small">
+                            <time datetime="2024-03-01 12:00:00">
+                                <i class="fas fa-calendar-alt mr-2"></i> {{ famovie.release_date | date : 'd-MMMM-yyyy' }}
+                            </time>
+                        </div>
+                        <div class="postcard__bar"></div>
+                        <div class="postcard__preview-txt">{{ famovie.overview }}</div>
+                        <div class="postcard__preview"><b>Original Title</b> : {{ famovie.title }}</div>
+                        <div class="postcard__preview"><b>Genres </b> : {{ getGenreNames(famovie.genre_ids) }}
+                        </div>
+                        <div class="postcard__preview"><b>Popularity </b> : {{ famovie.popularity }}
+                        </div>
+                        <ul class="postcard__tagbox">
+                            <li class="tag__item"><i class="fas fa-star mr-2"></i> {{ famovie.vote_average}} </li>
+                            <li class="tag__item play blue" style="cursor: pointer;">
+                                <a (click)="goToDetail(famovie.id)"><i class="fas fa-info mr-2"></i> Detail</a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

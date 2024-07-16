@@ -1,0 +1,7 @@
+<app-header></app-header>
+<app-hero-section *ngIf="!isDetailRoute()"></app-hero-section>
+<app-movie *ngIf="!isDetailRoute()"></app-movie>
+<app-fan-fav *ngIf="!isDetailRoute()"></app-fan-fav>
+<app-upcoming *ngIf="!isDetailRoute()"></app-upcoming>
+<router-outlet></router-outlet>
+

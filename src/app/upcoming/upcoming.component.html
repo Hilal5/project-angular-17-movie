@@ -1,0 +1,73 @@
+<!-- ======= Team Section ======= -->
+<section id="upcoming" class="team">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>Upcoming Movies</h2>
+      <p>Movie yang akan datang</p>
+
+    </div>
+
+        <div class="container">
+      <ul class="pagination animate__animated animate__fadeInDown" data-aos-delay="100">
+        <li (click)="goToPage(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}">
+          <a href="javascript:void(0)">
+            < Prev </a>
+        </li>
+        <li *ngFor="let page of pages" [ngClass]="{'active': page === currentPage}">
+          <a href="javascript:void(0)" (click)="goToPage(page)">{{ page }}</a>
+        </li>
+        <li (click)="goToPage(currentPage + 1)" [ngClass]="{'disabled': currentPage === pages.length}">
+          <a href="javascript:void(0)">Next ></a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="row">
+
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos-delay="100"
+        *ngFor="let upmovie of upmovies; trackBy: trackByMovieId" style="cursor: pointer;">
+        
+        <div class="member" data-aos="fade-up">
+          <div class="member-img">
+            <img [src]="imageUrlBase + upmovie.poster_path" alt="{{ upmovie.original_title }} poster" class="img-fluid">
+            <div class="social" (click)="goToDetail(upmovie.id)" >
+              <a><i class="bi bi-info" title="Movie Detail"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>{{ upmovie.original_title }}</h4>
+            <span>Genres: {{ getGenreNames(upmovie.genre_ids) }}</span>
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <h3>My Movie</h3>
+    <p>my first project web film berbasis Angular.</p>
+    <div class="social-links">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; Copyright <strong><span>2024</span></strong>. All Rights Reserved
+    </div>
+
+    <div class="credits">
+      made by<a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+    </div>
+  </div>
+</footer>
