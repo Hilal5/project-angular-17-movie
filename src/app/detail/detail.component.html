@@ -14,12 +14,11 @@
 
 <section id="portfolio-details" class="portfolio-details">
   <div class="container">
-
     <div class="row gy-4">
       <div class="col-lg-8">
-        <div class="portfolio-details-slider swiper">
+        <div class="portfolio-details-slider swiper" *ngIf="videos && videos.length > 0; else noVideoTemplate">
           <div class="swiper-wrapper align-items-center">
-            <div *ngFor="let video of videos" class="swiper-slide" >
+            <div *ngFor="let video of videos" class="swiper-slide">
               <div class="card" style="cursor: pointer;">
                 <div class="card-body">
                   <h5 class="card-title">{{ video.name }}</h5>
@@ -32,8 +31,10 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
+        <ng-template #noVideoTemplate>
+          <p>Video tidak ditemukan.</p>
+        </ng-template>
       </div>
-
 
       <div class="col-lg-4" *ngIf="movie">
         <div class="portfolio-info">
@@ -49,16 +50,16 @@
         </div>
         <div class="portfolio-description">
           <h2>Description</h2>
-          <p>{{ movie.overview }}</p>
+          <p *ngIf="movie.overview; else noDescriptionTemplate">{{ movie.overview }}</p>
+          <ng-template #noDescriptionTemplate>
+            <p>Deskripsi tidak ditemukan.</p>
+          </ng-template>
         </div>
       </div>
-      
-
-
     </div>
-
   </div>
 </section>
+
 
 <footer id="footer">
   <div class="container">
