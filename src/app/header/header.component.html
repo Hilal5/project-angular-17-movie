@@ -8,7 +8,7 @@
     </div>
 
     <nav id="navbar" class="navbar">
-      <ul *ngIf="showNavLinks">
+      <ul *ngIf="showNavLinks" class="m-3">
         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
         <li><a class="nav-link scrollto" href="#movies">Movies</a></li>
         <li><a class="nav-link scrollto" href="#fanfav">Top Movie</a></li>
@@ -19,9 +19,9 @@
           <li *ngFor="let movie of searchResults" (click)="goToDetail(movie.id)">{{ movie.title }}</li>
         </ul>
       </div> -->
-      <form class="d-flex position-relative">
+      <form class="position-relative">
         <input #searchQuery type="text" class="form-control" placeholder="Search Movies" aria-label="Search" (keyup)="onSearch(searchQuery.value)">
-        <div *ngIf="searchResults.length > 0" class="search-results position-absolute w-100">
+        <div *ngIf="searchResults.length > 0" class="search-results position-absolute">
           <ul class="list-group">
             <li *ngFor="let movie of searchResults" class="list-group-item w-100" (click)="goToDetail(movie.id)">
               {{ movie.title }}
