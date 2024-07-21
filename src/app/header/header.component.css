@@ -25,5 +25,6 @@
 }
 
 .search-results li:hover {
-  background-color: #f1f1f1;
+  background-color: #855d29;
+  color: white;
 }
